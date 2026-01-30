@@ -22,12 +22,10 @@ jobs:
       - name: Log in to Azure
         uses: azure/login@v2
         with:
-          creds: |
-            {
-              "clientId": "${{ vars.AZURE_CLIENT_ID }}",
-              "subscriptionId": "${{ vars.AZURE_SUBSCRIPTION_ID }}",
-              "tenantId": "${{ vars.AZURE_TENANT_ID }}"
-            }
+          "clientId": ${{ vars.AZURE_CLIENT_ID }}
+          "subscriptionId": ${{ vars.AZURE_SUBSCRIPTION_ID }}
+          "tenantId": ${{ vars.AZURE_TENANT_ID }}
+
 
       # Step 3: Logs in to the Azure Container Registry.
       # This uses the ACR credentials you will store as secrets.
@@ -41,5 +39,5 @@ jobs:
       # Step 4: Builds the Docker image and pushes it to your ACR.
       - name: Build and push Docker image
         run: |
-          docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/${{ vars.image_name }}:latest
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/${{ vars.image_name }}:latest
+          docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/${{ vars.IMAGE_NAME }}:latest
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/${{ vars.IMAGE_NAME }}:latest
