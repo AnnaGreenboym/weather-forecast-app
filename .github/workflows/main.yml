@@ -22,9 +22,9 @@ jobs:
       - name: Log in to Azure
         uses: azure/login@v2
         with:
-          clientId: ${{ vars.AZURE_CLIENT_ID }}
-          subscriptionId: ${{ vars.AZURE_SUBSCRIPTION_ID }}
-          tenantId: ${{ vars.AZURE_TENANT_ID }}
+          client-Id: ${{ vars.AZURE_CLIENT_ID }}
+          subscription-Id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+          tenant-Id: ${{ vars.AZURE_TENANT_ID }}
 
 
       # Step 3: Logs in to the Azure Container Registry.
